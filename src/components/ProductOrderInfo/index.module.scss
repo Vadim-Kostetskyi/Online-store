@@ -1,0 +1,99 @@
+@import 'styles/constants';
+
+.wrapper {
+  width: 410px;
+  margin-left: 50px;
+}
+
+.title {
+  margin-bottom: 10px;
+}
+
+.price,
+.sizeBox,
+.colorBox {
+  margin-bottom: 30px;
+}
+
+.boldface,
+.title,
+.price {
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: 0.01rem;
+}
+
+.currency {
+  font-weight: 700;
+}
+
+.ref {
+  letter-spacing: 0.01em;
+  margin-bottom: 30px;
+  color: $grayDark;
+}
+
+.submenu {
+  font-family: $font-family-main;
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.color:not(:last-child),
+.chosenColor:not(:last-child) {
+  margin-right: 15px;
+}
+
+.color,
+.chosenColor {
+  height: 121px;
+}
+
+.color {
+  border: 1px solid $pageBackground;
+}
+
+.chosenColor {
+  border-radius: 5px;
+  border: 1px solid $grayDark;
+}
+
+.sizeBox {
+  display: flex;
+}
+
+.sizeButton {
+  width: 50px;
+  height: 50px;
+  font-family: $font-family-main;
+  font-size: 20px;
+  border: 1px solid $grayDark;
+  border-radius: 4px;
+}
+
+.activeSize {
+  color: $brilliance;
+  background-color: $blackColor;
+}
+
+.sizeButton:not(:last-child) {
+  margin-right: 15px;
+}
+
+.listStyle {
+  overflow: hidden;
+  padding-bottom: 0;
+  max-height: 220px;
+  transition: all 200ms ease;
+}
+
+.accordionBox {
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid $paleGray;
+}
+
+.text {
+  word-wrap: 'break-word';
+}

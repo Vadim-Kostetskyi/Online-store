@@ -53,11 +53,11 @@ const NewNow = (): JSX.Element => {
           {cards.map(({ productName, price, sizes }, index) => (
             <ProductCard
               key={index}
-              productName={productName}
+              title={productName}
               price={price}
-              sizes={sizes}
+              size={sizes}
               // TODO: fix this
-              images={[]}
+              files={[]}
               // images={images}
             />
           ))}

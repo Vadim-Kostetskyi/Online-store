@@ -17,8 +17,15 @@
     "discountHeader": "Subscribe to our newsletter",
     "discountPercent": "and get a -{{discountPercent}}% discount"
   },
+  "productOrder": {
+    "selectColour": "Select colour",
+    "selectSize": "Select size",
+    "addToMyShoppingBag": "ADD TO MY SHOPPING BAG"
+  },
   "viewCollection": "View Collection",
   "collections": "Collections",
+  "YouAlsoViewed": "You also viewed",
+  "InSameStyle": "In the same style",
   "homePageModal": {
     "selectLocation": "Select your location",
     "selectLanguage": "Select your language",

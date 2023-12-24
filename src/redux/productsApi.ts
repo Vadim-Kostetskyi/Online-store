@@ -8,6 +8,7 @@ import {
   GetProductsPayload,
   GetProductsResponse,
   GetProductsWithImagesProps,
+  ProductImage,
 } from './types';
 
 export const productsApi = createApi({
@@ -18,6 +19,27 @@ export const productsApi = createApi({
   endpoints: builder => ({
     getProductsByName: builder.query({
       query: ({ page, size }) => `products/?page=${page}&size=${size}`,
+    }),
+    getProductById: builder.query({
+      query: ({ id }) => `products/${id}`,
+    }),
+    getProductImages: builder.query<{ images: ProductImage[] }, string[]>({
+      queryFn: async (ids, _queryApi, _extraOptions, fetchWithBQ) => {
+        const images = await Promise.all(
+          ids.map(async id => {
+            const result = await fetchWithBQ(`files/url/${id}`);
+            return result.data as ProductImage;
+          }),
+        );
+        return { data: { images } };
+      },
+    }),
+    searchProductsByParameter: builder.query({
+      query: ({ body, page, size }) => ({
+        url: `products/search?page=${page}&size=${size}`,
+        method: 'POST',
+        body,
+      }),
     }),
     getProductsWithImages: builder.query<
       GetProductsWithImagesProps,
@@ -57,5 +79,10 @@ export const productsApi = createApi({
   }),
 });
 
-export const { useGetProductsByNameQuery, useGetProductsWithImagesQuery } =
-  productsApi;
+export const {
+  useGetProductsByNameQuery,
+  useGetProductsWithImagesQuery,
+  useGetProductByIdQuery,
+  useGetProductImagesQuery,
+  useSearchProductsByParameterQuery,
+} = productsApi;

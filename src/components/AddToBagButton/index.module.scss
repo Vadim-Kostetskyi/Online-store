@@ -1,0 +1,56 @@
+@import 'styles/constants';
+
+.wrapper {
+  position: relative;
+  margin-bottom: 65px;
+}
+
+.addButton {
+  width: 100%;
+  background-color: $springGreen;
+  padding: 18px 0 14px;
+  border-radius: 5px;
+}
+
+.addButton:disabled {
+  opacity: 20%;
+}
+
+.addButton:active {
+  background-color: $darkGreen;
+}
+
+.shoppingBag {
+  position: absolute;
+  bottom: 14px;
+  left: 45px;
+  width: 24px;
+  fill: $brilliance;
+  stroke: $brilliance;
+}
+
+.text {
+  font-family: $font-family-main;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: $brilliance;
+}
+
+.heartButton {
+  position: absolute;
+  width: 50px;
+  height: 100%;
+  z-index: 10;
+  right: 0;
+  bottom: 0;
+  border: 0.5px solid $grayDark;
+  border-left: none;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: $brilliance;
+}
+
+.heart {
+  width: 24px;
+}

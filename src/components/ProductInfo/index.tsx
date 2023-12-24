@@ -36,6 +36,7 @@ const ProductInfo: FC<ProductInfo> = ({ price, productName, sizes }) => {
       setIsError(true);
       return;
     }
+    // TODO:add to cart function to complete
     console.log('color:', selectedColor);
     console.log('size:', selectedSize);
   };
@@ -50,7 +51,7 @@ const ProductInfo: FC<ProductInfo> = ({ price, productName, sizes }) => {
           </button>
         </div>
       </div>
-      <p className={styles.price}>{price}</p>
+      <p className={styles.price}>{price} €</p>
       <div className={styles.productInfoParametersWrapper}>
         <ProductInfoParameters
           changeParameters={changeParameters}

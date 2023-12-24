@@ -4,7 +4,7 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
-  margin-bottom: 24px;
+  // margin-bottom: 24px;
 }
 
 .title {
@@ -16,11 +16,14 @@
   }
 }
 
-.img {
+.img,
+.mobileImg {
   width: 24px;
   height: 24px;
   position: relative;
+}
 
+.mobileImg {
   @include media(laptopUp) {
     display: none;
   }

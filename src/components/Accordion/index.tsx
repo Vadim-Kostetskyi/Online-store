@@ -9,6 +9,7 @@ interface AccordionProps {
   defaultOpen?: boolean;
   list?: ReactNode;
   listStyle?: string;
+  isMobile?: boolean;
 }
 
 const Accordion: FC<AccordionProps> = ({
@@ -17,6 +18,7 @@ const Accordion: FC<AccordionProps> = ({
   defaultOpen = false,
   list,
   listStyle,
+  isMobile,
 }) => {
   const [isOpen, setIsOpen] = useState(defaultOpen);
 
@@ -24,14 +26,16 @@ const Accordion: FC<AccordionProps> = ({
     setIsOpen(!isOpen);
   };
 
+  const imageClassName = () => (isMobile ? styles.mobileImg : styles.img);
+
   return (
     <div className={styles.accordion}>
       <button className={styles.box} onClick={toggleAccordion}>
         <p className={titleStyles}>{title}</p>
         {isOpen ? (
-          <MinusImg className={styles.img} />
+          <MinusImg className={imageClassName()} />
         ) : (
-          <PlusImg className={styles.img} />
+          <PlusImg className={imageClassName()} />
         )}
       </button>
       <div className={isOpen ? listStyle : styles.hide}>{list}</div>

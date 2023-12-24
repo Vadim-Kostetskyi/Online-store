@@ -22,9 +22,7 @@ interface ProductProps {
 }
 
 export interface ImageItemProps {
-  id: string;
-  name: string;
-  url: string;
+  result: string;
 }
 
 export interface ImageProps {
@@ -40,4 +38,8 @@ export interface GetProductsWithImagesProps {
   products: ProductProps[];
   images: ImageProps[];
   error?: boolean;
+}
+
+export interface ProductImage {
+  result: string;
 }

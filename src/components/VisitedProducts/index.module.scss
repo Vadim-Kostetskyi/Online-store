@@ -1,0 +1,21 @@
+@import 'styles/constants';
+
+.wrapper {
+  max-width: $laptop;
+  margin: 0 auto 80px;
+  min-height: 300px;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+.cardWrapper {
+  display: flex;
+}
+
+.card:not(:last-child) {
+  margin-right: 10px;
+}

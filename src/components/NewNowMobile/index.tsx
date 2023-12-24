@@ -47,9 +47,9 @@ const NewNowMobile: FC<NewNowMobile> = ({ cards }) => {
         {cards.map(({ productName, price, sizes, images }, index) => (
           <SwiperSlide key={index} className={styles.swiperSlide}>
             <ProductCard
-              productName={productName}
+              title={productName}
               price={price}
-              sizes={sizes}
+              size={sizes}
               isMobile={true}
               image={images[0]}
             />

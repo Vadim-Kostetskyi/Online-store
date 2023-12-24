@@ -4,31 +4,36 @@ import ProductInfo from 'components/ProductInfo';
 import { Size } from 'types';
 import styles from './index.module.scss';
 import { ImageItemProps } from 'redux/types';
+import { Link } from 'react-router-dom';
 
 export interface ProductCardProps {
-  productName: string;
+  id?: string;
+  title: string;
   price: string;
-  sizes: Size[];
-  images?: ImageItemProps[];
+  size: Size[];
+  files?: ImageItemProps[];
   isMobile?: boolean;
   image?: string;
 }
 
 const ProductCard: FC<ProductCardProps> = ({
+  id,
   price,
-  productName,
-  sizes,
-  images = [],
+  title,
+  size,
+  files = [],
   isMobile,
   image,
 }) => (
   <div className={styles.productCard}>
     {isMobile ? (
-      <img src={image} alt={productName} className={styles.image} />
+      <img src={image} alt={title} className={styles.image} />
     ) : (
-      <ProductImageSwiper images={images} />
+      <Link to={`/product-order/${id}`}>
+        <ProductImageSwiper images={files} />
+      </Link>
     )}
-    <ProductInfo productName={productName} price={price} sizes={sizes} />
+    <ProductInfo productName={title} price={price} sizes={size} />
   </div>
 );
 

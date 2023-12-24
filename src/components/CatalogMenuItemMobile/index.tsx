@@ -12,7 +12,7 @@ interface CatalogMenuItemProps {
   menuOptions: Record<string, MenuItem[]>;
 }
 
-const CatalogMenuItem: FC<CatalogMenuItemProps> = ({
+const CatalogMenuItemMobile: FC<CatalogMenuItemProps> = ({
   menuItems,
   itemLabel,
   menuOptions,
@@ -60,4 +60,4 @@ const CatalogMenuItem: FC<CatalogMenuItemProps> = ({
   );
 };
 
-export default CatalogMenuItem;
+export default CatalogMenuItemMobile;

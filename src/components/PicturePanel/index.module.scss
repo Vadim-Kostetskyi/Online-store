@@ -1,0 +1,13 @@
+.imageWrapper {
+  display: flex;
+  flex-direction: column;
+  margin-right: 15px;
+}
+
+.image {
+  width: 110px;
+}
+
+.imageButton:not(:last-child) {
+  margin-bottom: 15px;
+}

@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import Cross from 'assets/svgs/Cross';
 import { Size } from 'types';
+import SizeSelector from 'components/SizeSelector';
 import styles from './index.module.scss';
 
 interface ToggleProductInfoParameters {
@@ -37,8 +38,8 @@ const ToggleProductInfoParameters: FC<ToggleProductInfoParameters> = ({
     </div>
     <div className={`${styles.parameterBox} ${open[index] ? '' : styles.hide}`}>
       <div className={styles.parametersBtn}>
-        {parameters.map((parameter, index) => {
-          if (productInfo === 'color') {
+        {productInfo === 'color' ? (
+          parameters.map((parameter, index) => {
             return (
               <button
                 key={index}
@@ -55,20 +56,15 @@ const ToggleProductInfoParameters: FC<ToggleProductInfoParameters> = ({
                 ></div>
               </button>
             );
-          }
-          return (
-            <button
-              key={index}
-              className={`${styles.parameterBtn} ${
-                active === parameter ? styles.active : ''
-              }`}
-              onClick={() => handleClick(productInfo, parameter)}
-              disabled={sizes && !sizes.includes(parameter as Size)}
-            >
-              {parameter}
-            </button>
-          );
-        })}
+          })
+        ) : (
+          <SizeSelector
+            parameters={parameters}
+            sizes={sizes}
+            active={active}
+            handleClick={handleClick}
+          />
+        )}
       </div>
       <button className={styles.crossBtn} onClick={() => toggle(index)}>
         <Cross className={styles.crossImg} />

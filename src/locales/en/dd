@@ -1,0 +1,58 @@
+{
+  "searchPlaceholder": "Search",
+  "newNow": "New now",
+  "colors": "Colours",
+  "sizes": "Sizes",
+  "selectSize": "Select a size",
+  "listItem": "{{label}}",
+  "country": "Ukraine",
+  "language": "English",
+  "call": "Call {{phone}}",
+  "workDays": "From Mondays to Fridays from 09:00 to 19:00",
+  "online": "Online",
+  "copyright": "© {{year}} by NOVA. All Rights Reserved.",
+  "subscriptionForm": {
+    "placeholder": "Enter your email address",
+    "policy": "I accept the privacy policy",
+    "discountHeader": "Subscribe to our newsletter",
+    "discountPercent": "and get a -{{discountPercent}}% discount"
+  },
+  "productOrder": {
+    "selectColour": "Select colour",
+    "selectSize": "Select size",
+    "addToMyShoppingBag": "ADD TO MY SHOPPING BAG"
+  },
+  "viewCollection": "View Collection",
+  "collections": "Collections",
+  "YouAlsoViewed": "You also viewed",
+  "InSameStyle": "In the same style"
+}
+
+{
+  "searchPlaceholder": "Search",
+  "newNow": "New now",
+  "colors": "Colours",
+  "sizes": "Sizes",
+  "selectSize": "Select a size",
+  "listItem": "{{label}}",
+  "country": "Ukraine",
+  "language": "English",
+  "call": "Call {{phone}}",
+  "workDays": "From Mondays to Fridays from 09:00 to 19:00",
+  "online": "Online",
+  "copyright": "© {{year}} by NOVA. All Rights Reserved.",
+  "subscriptionForm": {
+    "placeholder": "Enter your email address",
+    "policy": "I accept the privacy policy",
+    "discountHeader": "Subscribe to our newsletter",
+    "discountPercent": "and get a -{{discountPercent}}% discount"
+  },
+  "viewCollection": "View Collection",
+  "collections": "Collections",
+  "homePageModal": {
+    "selectLocation": "Select your location",
+    "selectLanguage": "Select your language",
+    "rememberSelection": "Remember my selection",
+    "go": "GO"
+  }
+}

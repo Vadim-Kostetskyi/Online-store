@@ -29,9 +29,9 @@ const ProductImageSwiper: FC<ProductImageSwiperProps> = ({ images }) => {
       className={styles.productImageSwiper}
     >
       <CoreSwiper navigation={{ prevEl, nextEl }}>
-        {images.map(({ id, name, url }) => (
-          <SwiperSlide key={id}>
-            <img src={url} alt={name} className={styles.img} />
+        {images.map(({ result }) => (
+          <SwiperSlide key={result}>
+            <img src={result} alt="" className={styles.img} />
           </SwiperSlide>
         ))}
         <div className={isHidden ? styles.hide : styles.wrapperArrows}>

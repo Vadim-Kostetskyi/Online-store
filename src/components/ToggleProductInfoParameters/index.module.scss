@@ -19,22 +19,6 @@
   color: $grayDark;
 }
 
-.parameterBtn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 20px;
-  height: 20px;
-  padding-top: 1px;
-  font-family: $font-family-main;
-  font-size: 14px;
-  letter-spacing: 0rem;
-
-  &:not(:last-child) {
-    margin-right: 15px;
-  }
-}
-
 .parameterBox {
   display: flex;
 }
