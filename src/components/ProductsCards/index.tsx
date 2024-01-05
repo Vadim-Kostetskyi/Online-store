@@ -15,6 +15,7 @@ const ProductsCards: FC<ProductsCardsProps> = ({ searchProducts }) => (
       return (
         <ProductCard
           key={id}
+          productId={id}
           productName={title}
           price={price}
           sizes={size}

@@ -1,14 +1,12 @@
 import React, { FC, useCallback, useMemo, useState } from 'react';
-import clsx from 'clsx';
 import { Navigation, Virtual } from 'swiper/modules';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper } from 'swiper/react';
 import ArrowSwiperCard from 'assets/svgs/ArrowSwiperCard';
-import ProductCard from 'components/ProductCard';
-import { CardProps } from 'components/NewNow';
+import { getValidClassNames } from 'libs/helpers/helpers';
 import styles from './index.module.scss';
 
 export interface NewNowMobile {
-  cards: CardProps[];
+  cards: JSX.Element;
 }
 
 const NewNowMobile: FC<NewNowMobile> = ({ cards }) => {
@@ -16,7 +14,7 @@ const NewNowMobile: FC<NewNowMobile> = ({ cards }) => {
   const [nextEl, setNextEl] = useState<HTMLElement | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const combinedClassName = clsx(styles.arrow, styles.arrowPrev);
+  const combinedClassName = getValidClassNames(styles.arrow, styles.arrowPrev);
 
   const setSwiperIndex = useCallback(
     ({ activeIndex }: { activeIndex: number }) => {
@@ -44,17 +42,7 @@ const NewNowMobile: FC<NewNowMobile> = ({ cards }) => {
         virtual
         onRealIndexChange={setSwiperIndex}
       >
-        {cards.map(({ productName, price, sizes, images }, index) => (
-          <SwiperSlide key={index} className={styles.swiperSlide}>
-            <ProductCard
-              productName={productName}
-              price={price}
-              sizes={sizes}
-              isMobile={true}
-              image={images[0]}
-            />
-          </SwiperSlide>
-        ))}
+        {cards}
         <div className={styles.wrapperArrows}>
           <button
             ref={node => setPrevEl(node)}
