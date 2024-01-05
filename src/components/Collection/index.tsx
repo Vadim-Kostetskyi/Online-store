@@ -26,7 +26,7 @@ export interface CollectionCardProps {
 const Collection = () => {
   const { t } = useTranslation();
   return (
-    <>
+    <div className={styles.componentWrapper}>
       <p className={styles.title}>{t('collections')}</p>
       <div className={styles.cardWrapper}>
         {collections.map(({ id, image, text }) => (
@@ -39,7 +39,7 @@ const Collection = () => {
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 };
 
