@@ -1,10 +1,6 @@
 import React, { FC, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import {
-  menuName,
-  category,
-  subcategory,
-} from 'components/CatalogMenu/MenuList';
+import { menuName, category, subcategory } from '../Header/MenuList';
 import CatalogMenuItemMobile from 'components/CatalogMenuItemMobile';
 import styles from './index.module.scss';
 

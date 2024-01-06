@@ -30,7 +30,8 @@ export const subcategory: MenuContent = {
     { id: 1, href: '#', label: 'Coats' },
     { id: 2, href: '#', label: 'Cardigans and sweaters' },
     { id: 3, href: '#', label: 'Jackets and overshirts' },
-    { id: 4, href: '#', label: 'Tourers' },
+
+    { id: 4, href: '#', label: 'Trousers' },
     { id: 5, href: '#', label: 'Shirts' },
     { id: 6, href: '#', label: 'Jeans' },
   ],
