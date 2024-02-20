@@ -1,5 +1,12 @@
 @import 'styles/constants';
 
+.buttonsFilterWrapper {
+  display: flex;
+  overflow: auto;
+  width: 510px;
+  gap: 15px;
+}
+
 .button {
   line-height: 48px;
   padding: 0px 32px;

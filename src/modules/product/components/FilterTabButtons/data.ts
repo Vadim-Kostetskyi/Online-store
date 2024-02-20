@@ -1,9 +1,9 @@
 import { TFunction } from 'i18next';
-import { Category, Subcategory } from 'types/types';
+import { Category, Subcategory, FilterItems } from 'types/types';
 
 export type ButtonProps = {
   name: string;
-  value: Category | Subcategory;
+  value: Category | Subcategory | FilterItems;
 };
 
 export const getButtons = (t: TFunction<string, string>): ButtonProps[] => [
@@ -26,5 +26,22 @@ export const getButtons = (t: TFunction<string, string>): ButtonProps[] => [
   {
     name: t('categoryItems.quiltedCoats'),
     value: Subcategory.QUILTED,
+  },
+];
+
+export const getFilterButtons = (
+  t: TFunction<string, string>,
+): ButtonProps[] => [
+  {
+    name: t('newNow'),
+    value: FilterItems.NewNow,
+  },
+  {
+    name: t('productFilter.PriceLowToHigh'),
+    value: FilterItems.PriceLowToHigh,
+  },
+  {
+    name: t('productFilter.priceHighToLow'),
+    value: FilterItems.PriceHighToLow,
   },
 ];

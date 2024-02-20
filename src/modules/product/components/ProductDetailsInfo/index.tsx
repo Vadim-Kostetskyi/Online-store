@@ -1,13 +1,11 @@
 import React, { FC, useCallback, useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import SizeSelector from 'modules/product/components/SizeSelector';
 import ColorSelection from 'modules/product/components/ColorSelection';
 import AddToCartButton from 'modules/checkout/components/AddToCartButton';
 import Accordion from 'modules/core/components/Accordion';
 import { Size, Color } from 'types/types';
-import BlackColor from 'assets/images/chooseColor/black.png';
-import WhiteColor from 'assets/images/chooseColor/white.png';
 import styles from './index.module.scss';
-import { useTranslation } from 'react-i18next';
 
 export interface ProductDetailsInfoProps {
   title: string;
@@ -19,19 +17,6 @@ export interface ProductDetailsInfoProps {
   addToFavorite: () => void;
   addToShoppingCart: () => void;
 }
-
-const clothesColors = [
-  {
-    label: Color.Black,
-    content: BlackColor,
-  },
-  {
-    label: Color.White,
-    content: WhiteColor,
-  },
-];
-
-const defaultSizes: Size[] = Object.values(Size);
 
 const ProductDetailsInfo: FC<ProductDetailsInfoProps> = ({
   title,
@@ -49,10 +34,13 @@ const ProductDetailsInfo: FC<ProductDetailsInfoProps> = ({
 
   const { t } = useTranslation();
 
-  const handleChangeSize = useCallback((_: string, size: Size) => {
-    setSelectedSize(size);
-    setIsError(false);
-  }, []);
+  const handleChangeSize = useCallback(
+    (size: Size) => () => {
+      setSelectedSize(size);
+      setIsError(false);
+    },
+    [],
+  );
 
   const handleChangeColor = useCallback(
     (color: Color) => () => {
@@ -90,7 +78,6 @@ const ProductDetailsInfo: FC<ProductDetailsInfoProps> = ({
       <div className={styles.colorBox}>
         <p className={styles.submenu}>{t('productDetails.selectColour')}</p>
         <ColorSelection
-          colors={clothesColors}
           chosenColor={selectedColor}
           changeColor={handleChangeColor}
         />
@@ -98,7 +85,6 @@ const ProductDetailsInfo: FC<ProductDetailsInfoProps> = ({
       <p className={styles.submenu}>{t('productDetails.selectSize')}</p>
       <div className={styles.sizeBox}>
         <SizeSelector
-          parameters={defaultSizes}
           sizes={sizes}
           active={selectedSize}
           handleClick={handleChangeSize}

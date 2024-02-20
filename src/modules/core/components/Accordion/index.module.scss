@@ -4,6 +4,7 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
+  cursor: pointer;
 }
 
 .title {
@@ -30,6 +31,7 @@
 
 .hide {
   max-height: 0;
+  opacity: 0;
   overflow: hidden;
   transition: height 200ms ease-in;
 }

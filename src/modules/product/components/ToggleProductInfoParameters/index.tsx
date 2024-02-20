@@ -1,6 +1,6 @@
 import React, { FC, useCallback, useMemo } from 'react';
 import Cross from 'assets/svgs/Cross';
-import { Size } from 'types/types';
+import { Color, Size } from 'types/types';
 import SizeSelector from 'modules/product/components/SizeSelector';
 import styles from './index.module.scss';
 import { clsx } from 'clsx';
@@ -11,10 +11,10 @@ interface ToggleProductInfoParameters {
   parameters: string[];
   index: number;
   sizes?: Size[];
-  active?: string;
+  active?: Size | Color;
   productInfo: string;
   toggle: (element: number) => void;
-  handleClick: (param: string, value: string) => void;
+  handleClick: (size: Size | Color) => void;
 }
 
 const ToggleProductInfoParameters: FC<ToggleProductInfoParameters> = ({
@@ -60,11 +60,11 @@ const ToggleProductInfoParameters: FC<ToggleProductInfoParameters> = ({
               <button
                 key={index}
                 className={getCombinedClass(parameter)}
-                onClick={() => handleClick(productInfo, parameter)}
+                onClick={() => handleClick(parameter as Color)}
               >
                 <span
                   className={
-                    parameter === 'black'
+                    parameter === 'Black'
                       ? styles.blackColor
                       : styles.whiteColor
                   }
@@ -73,10 +73,9 @@ const ToggleProductInfoParameters: FC<ToggleProductInfoParameters> = ({
             ))
           ) : (
             <SizeSelector
-              parameters={parameters}
               sizes={sizes}
-              active={active}
-              handleClick={handleClick}
+              active={active as Size}
+              handleClick={handleClick as (size: Size) => void}
             />
           )}
         </div>

@@ -109,17 +109,34 @@ export const productsApi = createApi({
       SearchProductsProps
     >({
       async queryFn(_arg, _queryApi, _extraOptions, fetchWithBQ) {
-        const rawProducts = await fetchWithBQ({
-          url: `products/search?page=${_arg.page}&size=${_arg.size}`,
-          method: 'POST',
-          body: _arg.body,
-        });
+        let rawProducts;
+
+        switch (true) {
+          case _arg.isFilter:
+            rawProducts = await fetchWithBQ({
+              url: `products/filter?page=${_arg.page}&size=${_arg.size}&sorting=price-${_arg.sortBy}`,
+              method: 'POST',
+              body: _arg.body,
+            });
+            break;
+          case _arg.isNewNow:
+            rawProducts = await fetchWithBQ('products/new');
+            break;
+          default:
+            rawProducts = await fetchWithBQ({
+              url: `products/search?page=${_arg.page}&size=${_arg.size}`,
+              method: 'POST',
+              body: _arg.body,
+            });
+            break;
+        }
 
         if (rawProducts.error)
           return { error: rawProducts.error as FetchBaseQueryError };
 
-        const products =
-          (rawProducts.data as GetProductsResponse)?.products ?? [];
+        const products = _arg.isNewNow
+          ? (rawProducts.data as GetProductsResponse['products']) ?? []
+          : (rawProducts.data as GetProductsResponse)?.products ?? [];
 
         const productsId: string[] = products.reduce((acc: string[], cur) => {
           acc.push(cur.id);
@@ -129,6 +146,7 @@ export const productsApi = createApi({
         const images = await Promise.all(
           productsId.map(async id => {
             const images = await fetchWithBQ(`products/images/${id}`);
+
             return { id, images: images?.data };
           }),
         );

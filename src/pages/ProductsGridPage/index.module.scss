@@ -1,0 +1,21 @@
+.searchWrapper {
+  position: relative;
+}
+
+.filterWrapper {
+  position: absolute;
+  top: 125px;
+  right: 80px;
+  bottom: 44px;
+  z-index: 1000;
+}
+
+.searchIcon {
+  width: 24px;
+}
+
+.loaderWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}

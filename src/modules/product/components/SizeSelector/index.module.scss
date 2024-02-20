@@ -1,6 +1,7 @@
 @import 'styles/constants';
 
-.parameterBtn {
+.parameterBtn,
+.parameterBtnFilter {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -14,6 +15,14 @@
   &:not(:last-child) {
     margin-right: 15px;
   }
+}
+
+.parameterBtnFilter {
+  width: 48px;
+  height: 48px;
+  font-size: 20px;
+  border: 1px solid $grayDark;
+  border-radius: 4px;
 }
 
 .productDetailsParameterBtn {

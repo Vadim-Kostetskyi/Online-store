@@ -1,0 +1,47 @@
+.wrapper {
+  position: relative;
+  height: auto;
+}
+
+.burgerMenuButton {
+  position: absolute;
+  visibility: visible;
+  right: 0;
+  top: 0;
+  z-index: 10;
+  transition: visibility 300ms;
+  cursor: pointer;
+}
+
+.burgerMenuIcon {
+  padding: 8px;
+}
+
+.filterWrapper {
+  position: absolute;
+  overflow: hidden;
+  padding: 5px 0 5px 5px;
+  right: -80px;
+  top: -130px;
+}
+
+.filterBox {
+  position: relative;
+  right: 0;
+  transition: all 300ms;
+  box-shadow: 0px 2px 4px 0px #00000040;
+}
+
+.hide {
+  position: relative;
+  right: -420px;
+  transition: all 300ms;
+}
+
+.invisible {
+  position: absolute;
+  right: 0;
+  top: 0;
+  visibility: hidden;
+  transition: visibility 3000ms;
+}

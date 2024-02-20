@@ -2,14 +2,19 @@
   "searchPlaceholder": "Search",
   "newNow": "New now",
   "colors": "Colours",
+  "color": "Colour",
   "sizes": "Sizes",
+  "size": "Size",
   "selectSize": "Select a size",
   "listItem": "{{label}}",
   "country": "Ukraine",
   "language": "English",
   "call": "Call {{phone}}",
-  "workDays": "From Mondays to Fridays from 09:00 to 19:00",
   "online": "Online",
+  "sortBy": "Sort by",
+  "price": "Price",
+  "currency": "€",
+  "workDays": "From Mondays to Fridays from 09:00 to 19:00",
   "copyright": "© {{year}} by NOVA. All Rights Reserved.",
   "subscriptionForm": {
     "placeholder": "Enter your email address",
@@ -44,5 +49,12 @@
     "overshirts": "Overshirts",
     "quiltedCoats": "Quilted coats"
   },
-  "currency": "€"
+  "productFilter": {
+    "filter": "Filter",
+    "clear": "CLEAR",
+    "seeResults": "SEE RESULTS",
+    "all": "All",
+    "priceHighToLow": "Price high to low",
+    "PriceLowToHigh": "Price low to high"
+  }
 }

@@ -24,13 +24,14 @@ const ProductInfoParameters: FC<ProductInfoParameters> = ({
   const colors: Color[] = Object.values(Color);
   const defaultSizes: Size[] = Object.values(Size);
 
-  const handleClick = (param: string, value: Color | string) => {
-    if (param === 'color') {
+  const handleClick = (value: Color | string) => {
+    if (value in Color) {
       setActiveColor(value as Color);
-    } else if (param === 'size') {
+      changeParameters('color', value);
+    } else if (value in Size) {
       setActiveSize(value as Size);
+      changeParameters('size', value);
     }
-    changeParameters(param, value);
   };
 
   const toggle = useCallback((element: number) => {

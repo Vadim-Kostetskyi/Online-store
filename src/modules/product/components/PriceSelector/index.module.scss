@@ -1,0 +1,101 @@
+@import 'styles/constants';
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slider {
+  position: relative;
+  width: 380px;
+}
+
+.sliderTrack,
+.sliderRange,
+.sliderLeftValue,
+.sliderRightValue {
+  position: absolute;
+}
+
+.sliderTrack,
+.sliderRange {
+  border-radius: 3px;
+  height: 5px;
+}
+
+.sliderTrack {
+  background-color: $pageBackground;
+  border: 1px solid $backdropColor;
+  width: 100%;
+  z-index: 1;
+}
+
+.sliderRange {
+  background-color: $greenMint;
+  z-index: 2;
+}
+
+.sliderLeftValue,
+.sliderRightValue {
+  top: 20px;
+  letter-spacing: 0.01em;
+}
+
+.sliderLeftValue {
+  left: 0;
+}
+
+.sliderRightValue {
+  right: 0;
+}
+
+.thumbMin,
+.thumbMax,
+.thumbMin::-webkit-slider-thumb,
+.thumbMax::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.thumbMin,
+.thumbMax {
+  pointer-events: none;
+  position: absolute;
+  height: 0;
+  width: 380px;
+  outline: none;
+}
+
+.thumbMin {
+  z-index: 3;
+}
+
+.thumbMax {
+  z-index: 4;
+}
+
+@mixin range-thumb-common {
+  position: relative;
+  cursor: pointer;
+  height: 18px;
+  width: 18px;
+  margin-top: 4px;
+  border: none;
+  border-radius: 50%;
+  background-color: $pageBackground;
+  box-shadow: 0px 2px 4px 0px $blackTransparentColor;
+  pointer-events: all;
+}
+
+/* For Chrome browsers */
+.thumbMin::-webkit-slider-thumb,
+.thumbMax::-webkit-slider-thumb {
+  @include range-thumb-common;
+}
+
+/* For Firefox browsers */
+.thumbMin::-moz-range-thumb,
+.thumbMax::-moz-range-thumb {
+  @include range-thumb-common;
+}
