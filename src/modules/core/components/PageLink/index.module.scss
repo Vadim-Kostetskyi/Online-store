@@ -1,0 +1,16 @@
+@import 'styles/constants';
+
+.pageButton {
+  color: $grayLight;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.pageButtonActive {
+  color: $blackColor;
+  pointer-events: none;
+  &:hover {
+    cursor: default;
+  }
+}

@@ -1,9 +1,7 @@
 import React, { FC } from 'react';
+import { getValidClassNames } from 'helpers';
 import ArrowLeft from 'assets/svgs/ArrowLeft';
 import ArrowRight from 'assets/svgs/ArrowRight';
-import ArrowLeftGrey from 'assets/svgs/ArrowLeftGrey';
-import ArrowRightGrey from 'assets/svgs/ArrowRightGrey';
-
 import styles from './index.module.scss';
 
 interface PaginationButtonProps {
@@ -13,32 +11,22 @@ interface PaginationButtonProps {
 }
 
 const PaginationButton: FC<PaginationButtonProps> = ({
-  isPrevious,
-  isDisabled,
+  isPrevious = false,
+  isDisabled = false,
   handleClick,
-}) => {
-  return (
-    <button
-      className={`${styles.paginationButton} ${
-        isDisabled ? styles.paginationDisabled : ''
-      }`}
-      onClick={handleClick}
-    >
-      <div className={styles.pagination__icon}>
-        {isDisabled ? (
-          isPrevious ? (
-            <ArrowLeftGrey />
-          ) : (
-            <ArrowRightGrey />
-          )
-        ) : isPrevious ? (
-          <ArrowLeft />
-        ) : (
-          <ArrowRight />
-        )}
-      </div>
-    </button>
-  );
-};
+}) => (
+  <button
+    className={getValidClassNames(styles.paginationButton, {
+      [styles.paginationDisabled]: isDisabled,
+    })}
+    onClick={handleClick}
+  >
+    {isPrevious ? (
+      <ArrowLeft isGrey={isDisabled} />
+    ) : (
+      <ArrowRight isGrey={isDisabled} />
+    )}
+  </button>
+);
 
 export default PaginationButton;

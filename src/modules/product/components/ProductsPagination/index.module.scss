@@ -6,6 +6,9 @@
   align-items: center;
   gap: 40px;
   margin-bottom: 64px;
+  @include media(mobile) {
+    margin-bottom: 0px;
+  }
 }
 
 .pager {

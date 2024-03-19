@@ -31,7 +31,6 @@ const CoreSwiper: FC<CoreSwiperProps> = ({
     effect="fade"
     fadeEffect={{ crossFade: true }}
     rewind
-    loop
   >
     {children}
   </Swiper>

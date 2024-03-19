@@ -3,14 +3,14 @@ import { BodySearchProducts } from 'redux/types';
 import { getButtons } from './data';
 import { useTranslation } from 'react-i18next';
 import { Category, Subcategory } from 'types/types';
-import { PageNumbers } from 'utils/constants';
+import { FIRST_PAGE } from 'utils/constants';
 
 import styles from './index.module.scss';
 
 interface FilterTabButtons {
   activeButton: string;
   setActiveButton: (value: string) => void;
-  setActivePage: (page: PageNumbers) => void;
+  setActivePage: (page: number) => void;
   handleClick: (body: BodySearchProducts) => void;
 }
 
@@ -28,7 +28,7 @@ const FilterTabButtons: FC<FilterTabButtons> = ({
     (value: string, body: BodySearchProducts) => () => {
       handleClick(body);
       setActiveButton(value);
-      setActivePage(PageNumbers.FIRST_PAGE);
+      setActivePage(FIRST_PAGE);
     },
     [],
   );

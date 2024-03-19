@@ -5,7 +5,7 @@ import {
   useGetProductsByIdWithImagesQuery,
 } from 'redux/productsApi';
 import { BodySearchProducts } from 'redux/types';
-import { PageNumbers, SIMILAR_PRODUCTS_SIZE } from 'utils/constants';
+import { FIRST_PAGE, SIMILAR_PRODUCTS_SIZE } from 'utils/constants';
 import ProductsGridShort from 'modules/product/components/ProductsGridShort';
 import styles from './index.module.scss';
 import { useParams } from 'react-router-dom';
@@ -37,7 +37,7 @@ const CustomizedProductsDisplay: FC<BodySearchProducts> = ({ subcategory }) => {
 
   useEffect(() => {
     searchProducts({
-      page: Number(PageNumbers.FIRST_PAGE),
+      page: FIRST_PAGE,
       size: SIMILAR_PRODUCTS_SIZE,
       body: {
         subcategory,

@@ -2,7 +2,9 @@ import { useState, useEffect, useCallback } from 'react';
 import { ViewportWidth } from 'utils/constants';
 
 export const useGetViewportWidth = () => {
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(
+    window.innerWidth <= ViewportWidth.MOBILE,
+  );
 
   const handleResize = useCallback(() => {
     const isMobileWidth = window.innerWidth <= ViewportWidth.MOBILE;

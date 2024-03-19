@@ -6,7 +6,7 @@
   gap: 16px;
   & > div {
     margin: 0px auto;
-    max-width: $max-content-width;
+    width: 100%;
   }
   @include media(tablet) {
     max-width: 448px;

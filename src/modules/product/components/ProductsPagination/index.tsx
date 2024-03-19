@@ -1,17 +1,18 @@
-import React, { FC, useCallback } from 'react';
+import React, { FC, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { PageNumbers, DEFAULT_PAGES_AMOUNT } from 'utils/constants';
+import { DEFAULT_PAGES_AMOUNT } from 'utils/constants';
 import { createPagesList } from 'helpers/create-pages-list.helper';
 import PaginationButton from 'modules/core/components/PaginationButton';
 import Ellipsis from 'modules/core/components/Ellipsis';
+import PageLink from 'modules/core/components/PageLink';
 
 import styles from './index.module.scss';
 
 export interface ProductsPaginationProps {
-  pagesAmount: PageNumbers;
-  activePage: PageNumbers;
-  setActivePage: (activePage: PageNumbers) => void;
-  getPageProducts: (pageNumber: PageNumbers) => void;
+  pagesAmount: number;
+  activePage: number;
+  setActivePage: (activePage: number) => void;
+  getPageProducts: (pageNumber: number) => void;
 }
 
 const ProductsPagination: FC<ProductsPaginationProps> = ({
@@ -22,154 +23,113 @@ const ProductsPagination: FC<ProductsPaginationProps> = ({
 }) => {
   const { t } = useTranslation();
 
-  const pagesList = createPagesList(pagesAmount);
+  const pagesList = useMemo(() => createPagesList(pagesAmount), [pagesAmount]);
 
-  const handleNumberClick = useCallback((pageNumber: PageNumbers) => {
-    getPageProducts(pageNumber);
-    setActivePage(pageNumber);
-  }, []);
+  const handleNumberClick = useCallback(
+    (pageNumber: number) => () => {
+      getPageProducts(pageNumber);
+      setActivePage(pageNumber);
+    },
+    [activePage],
+  );
 
-  const handleButtonClick = useCallback((increment: number) => {
-    const nextPage = Number(activePage) + increment;
-    getPageProducts(nextPage);
-    setActivePage(nextPage);
-  }, []);
+  const handleButtonClick = useCallback(
+    (increment: number) => () => {
+      const nextPage = activePage + increment;
+      getPageProducts(nextPage);
+      setActivePage(nextPage);
+    },
+    [activePage],
+  );
 
   return (
     <div className={styles.pagination}>
       <PaginationButton
         isPrevious
-        handleClick={() => handleButtonClick(-1)}
-        isDisabled={activePage === PageNumbers.FIRST_PAGE}
+        isDisabled={activePage === 1}
+        handleClick={handleButtonClick(-1)}
       />
       <ul className={styles.pager}>
         <li className={styles.pageText}>{t('page')}</li>
-        {Number(pagesAmount) <= DEFAULT_PAGES_AMOUNT ? (
-          pagesList.map(pageNumber => {
-            return (
-              <li
-                key={pageNumber}
-                className={`${styles.pageButton} 
-                                ${
-                                  pageNumber === activePage
-                                    ? styles.pageButtonActive
-                                    : ''
-                                }`}
-                onClick={() => handleNumberClick(pageNumber)}
-              >
-                {pageNumber}
-              </li>
-            );
-          })
+        {pagesAmount <= DEFAULT_PAGES_AMOUNT ? (
+          pagesList.map(pageNumber => (
+            <PageLink
+              key={pageNumber}
+              pageNumber={pageNumber}
+              activePage={activePage}
+              handleClick={handleNumberClick(pageNumber)}
+            />
+          ))
         ) : (
           <>
-            <li
-              key={PageNumbers.FIRST_PAGE}
-              className={`${styles.pageButton} 
-                                ${
-                                  PageNumbers.FIRST_PAGE === activePage
-                                    ? styles.pageButtonActive
-                                    : ''
-                                }`}
-              onClick={() => handleNumberClick(PageNumbers.FIRST_PAGE)}
-            >
-              {PageNumbers.FIRST_PAGE}
-            </li>
-            {Number(activePage) <= PageNumbers.THIRD_PAGE &&
-              [PageNumbers.SECOND_PAGE, PageNumbers.THIRD_PAGE].map(
-                pageNumber => (
-                  <li
-                    key={pageNumber}
-                    className={`${styles.pageButton} 
-                                        ${
-                                          pageNumber === activePage
-                                            ? styles.pageButtonActive
-                                            : ''
-                                        }`}
-                    onClick={() => handleNumberClick(pageNumber)}
-                  >
-                    {pageNumber}
-                  </li>
-                ),
-              )}
-            {Number(activePage) === PageNumbers.THIRD_PAGE && (
-              <li
-                key={PageNumbers.FOURTH_PAGE}
-                className={styles.pageButton}
-                onClick={() => handleNumberClick(PageNumbers.FOURTH_PAGE)}
-              >
-                {PageNumbers.FOURTH_PAGE}
-              </li>
+            <PageLink
+              key={1}
+              pageNumber={1}
+              activePage={activePage}
+              handleClick={handleNumberClick(1)}
+            />
+            {activePage <= 3 &&
+              [2, 3].map(pageNumber => (
+                <PageLink
+                  key={pageNumber}
+                  pageNumber={pageNumber}
+                  activePage={activePage}
+                  handleClick={handleNumberClick(pageNumber)}
+                />
+              ))}
+            {activePage === 3 && (
+              <PageLink
+                key={4}
+                pageNumber={4}
+                activePage={activePage}
+                handleClick={handleNumberClick(4)}
+              />
             )}
-            <Ellipsis />
-            {Number(activePage) >= PageNumbers.FOURTH_PAGE &&
-              Number(activePage) <= Number(pagesAmount) - 3 && (
-                <>
-                  {[
-                    Number(activePage) - 1,
-                    Number(activePage),
-                    Number(activePage) + 1,
-                  ].map(pageNumber => (
-                    <li
+            <Ellipsis key={'ellipsis1'} />
+            {activePage >= 4 && activePage <= pagesAmount - 3 && (
+              <>
+                {[activePage - 1, activePage, activePage + 1].map(
+                  pageNumber => (
+                    <PageLink
                       key={pageNumber}
-                      className={`${styles.pageButton} 
-                                            ${
-                                              pageNumber === activePage
-                                                ? styles.pageButtonActive
-                                                : ''
-                                            }`}
-                      onClick={() => handleNumberClick(pageNumber)}
-                    >
-                      {pageNumber}
-                    </li>
-                  ))}
-                  <Ellipsis />
-                </>
-              )}
-            {Number(activePage) === Number(pagesAmount) - 2 && (
-              <li
-                key={Number(pagesAmount) - 3}
-                className={styles.pageButton}
-                onClick={() => handleNumberClick(Number(pagesAmount) - 3)}
-              >
-                {Number(pagesAmount) - 3}
-              </li>
+                      pageNumber={pageNumber}
+                      activePage={activePage}
+                      handleClick={handleNumberClick(pageNumber)}
+                    />
+                  ),
+                )}
+                <Ellipsis key={'ellipsis1'} />
+              </>
             )}
-            {Number(activePage) > Number(pagesAmount) - 3 &&
-              [Number(pagesAmount) - 2, Number(pagesAmount) - 1].map(
-                pageNumber => (
-                  <li
-                    key={pageNumber}
-                    className={`${styles.pageButton} 
-                                    ${
-                                      pageNumber === activePage
-                                        ? styles.pageButtonActive
-                                        : ''
-                                    }`}
-                    onClick={() => handleNumberClick(pageNumber)}
-                  >
-                    {pageNumber}
-                  </li>
-                ),
-              )}
-            <li
+            {activePage === pagesAmount - 2 && (
+              <PageLink
+                key={pagesAmount - 3}
+                pageNumber={pagesAmount - 3}
+                activePage={activePage}
+                handleClick={handleNumberClick(pagesAmount - 3)}
+              />
+            )}
+            {activePage > pagesAmount - 3 &&
+              [pagesAmount - 2, pagesAmount - 1].map(pageNumber => (
+                <PageLink
+                  key={pageNumber}
+                  pageNumber={pageNumber}
+                  activePage={activePage}
+                  handleClick={handleNumberClick(pageNumber)}
+                />
+              ))}
+            <PageLink
               key={pagesAmount}
-              className={`${styles.pageButton} 
-                                ${
-                                  pagesAmount === activePage
-                                    ? styles.pageButtonActive
-                                    : ''
-                                }`}
-              onClick={() => handleNumberClick(pagesAmount)}
-            >
-              {pagesAmount}
-            </li>
+              pageNumber={pagesAmount}
+              activePage={activePage}
+              handleClick={handleNumberClick(pagesAmount)}
+            />
           </>
         )}
       </ul>
       <PaginationButton
-        handleClick={() => handleButtonClick(1)}
         isDisabled={activePage === pagesAmount}
+        handleClick={handleButtonClick(1)}
       />
     </div>
   );

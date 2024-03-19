@@ -1,11 +1,12 @@
 .imageWrapper {
   display: flex;
   flex-direction: column;
-  margin-right: 15px;
+  justify-content: space-between;
+  gap: 16px;
 }
 
 .image {
-  width: 110px;
+  width: 100%;
 }
 
 .imageButton {

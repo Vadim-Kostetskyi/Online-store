@@ -1,8 +1,6 @@
-import { PageNumbers } from 'utils/constants';
-
-const createPagesList = (pagesAmount: PageNumbers) => {
+const createPagesList = (pagesAmount: number) => {
   const pagesArray: number[] = [];
-  for (let i = 1; i <= Number(pagesAmount); i++) {
+  for (let i = 1; i <= pagesAmount; i++) {
     pagesArray.push(i);
   }
   return pagesArray;

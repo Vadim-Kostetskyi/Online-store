@@ -1,8 +1,7 @@
 @import 'styles/constants';
 
 .wrapper {
-  width: 410px;
-  margin-left: 50px;
+  width: calc((100% - 52px) * 34 / 100);
 }
 
 .title {
