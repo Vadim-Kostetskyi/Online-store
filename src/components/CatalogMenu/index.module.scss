@@ -1,20 +1,16 @@
 @import 'styles/constants';
 
-.menuBox {
+.menu > ul {
   display: flex;
-  justify-content: space-between;
   gap: 40px;
-
-  @include media(tablet) {
-    display: none;
-  }
+  justify-content: space-between;
 }
 
-.menuItem {
+.menu ul li {
   font-weight: 500;
 }
 
-.menuItemLink {
+.menu > ul > li > a {
   font-size: 20px;
   color: $textPrimary;
   border-bottom: 2px solid $pageBackground;
@@ -26,23 +22,146 @@
       border-bottom-color: $textPrimary;
     }
 
-    &:focus + .menuListContainer,
-    &:hover + .menuListContainer {
-      display: block;
+    &:focus + .categoryWrapper,
+    &:hover + .categoryWrapper {
+      display: flex;
     }
   }
 }
 
-.menuListContainer {
+.menu > ul > li > button {
+  font-family: $font-family-main;
+  font-size: 20px;
+  font-weight: 500;
+  color: $textPrimary;
+  border-bottom: 2px solid $pageBackground;
+
+  &:active + ul {
+    display: flex;
+  }
+}
+
+.item {
+  padding-bottom: 5px;
+  border-bottom: 2px solid $textPrimary !important;
+}
+
+.menu > ul > li > ul {
+  @include media(laptopUp) {
+    display: none;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    z-index: 10;
+    width: 100vw;
+
+    margin-top: 20px;
+    padding: 55px 0 95px 80px;
+    background-color: $pageBackground;
+
+    &:hover,
+    &:focus {
+      display: flex;
+      justify-content: flex-start;
+    }
+  }
+}
+
+.menu ul li ul li:first-child {
+  display: flex;
+  flex-direction: column;
+}
+
+.link,
+.clothing,
+.promotion {
+  font-size: 32px;
+  font-weight: 400;
+  letter-spacing: 0.01rem;
+  color: $textPrimary;
+}
+
+.link:not(:last-child),
+.clothing,
+.promotion {
+  margin-bottom: 15px;
+}
+
+.promotion {
+  color: $alertRed;
+}
+
+.link:hover,
+.link:focus,
+.clothing:hover,
+.clothing:focus,
+.promotion:hover,
+.promotion:focus {
+  color: $grayLight;
+}
+
+.clothingListWrapper {
+  display: block;
+  padding-left: 80px;
+
+  @include media(tablet) {
+    display: none;
+  }
+}
+
+.hide {
+  display: none;
+}
+
+.menuListContainer,
+.menuListContainerHide {
   display: none;
   position: absolute;
-  top: 65px;
+  top: 140px;
   left: 0;
   z-index: 10;
   width: 100vw;
+}
+
+.menuListContainer {
+  display: block;
+}
+
+.subcategoryWrapper {
+  display: flex;
+  flex-direction: column;
 
   &:hover,
   &:focus {
-    display: block;
+    display: flex;
   }
+  @include media(tablet) {
+    margin-bottom: 25px;
+  }
+}
+
+.subcategoryLink,
+.linkSeeAll {
+  font-size: 32px;
+  letter-spacing: 0.01em;
+  color: $textPrimary;
+}
+
+.subcategoryLink,
+.linkSeeAll {
+  font-size: 20px;
+  margin-bottom: 30px;
+
+  &:focus,
+  &:hover {
+    color: $grayLight;
+  }
+}
+
+.linkSeeAll {
+  font-weight: 600;
+}
+
+.subcategoryLink {
+  margin-bottom: 10px;
 }

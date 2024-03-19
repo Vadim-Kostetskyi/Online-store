@@ -9,6 +9,7 @@ import Copyright from 'modules/core/components/Copyright';
 import { Language } from 'types/types';
 import { useTranslation } from 'react-i18next';
 import { useGetViewportWidth } from 'hooks';
+import { ViewportWidth } from 'utils/constants';
 import styles from './index.module.scss';
 
 export interface PreferencesModalProps {
@@ -82,7 +83,7 @@ const PreferencesModal: FC<PreferencesModalProps> = ({
     [],
   );
 
-  const isMobile = useGetViewportWidth();
+  const isMobile = useGetViewportWidth(ViewportWidth.TABLET);
 
   return (
     <div className={styles.backdrop}>

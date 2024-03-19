@@ -1,20 +1,20 @@
 import { useState, useEffect, useCallback } from 'react';
-import { ViewportWidth } from 'utils/constants';
 
-export const useGetViewportWidth = () => {
-  const [isMobile, setIsMobile] = useState(false);
+export const useGetViewportWidth = (initialWidth: number) => {
+  const [isMobile, setIsMobile] = useState<boolean>(
+    window.innerWidth <= initialWidth,
+  );
 
   const handleResize = useCallback(() => {
-    const isMobileWidth = window.innerWidth <= ViewportWidth.MOBILE;
-    setIsMobile(isMobileWidth);
-  }, [window.innerWidth]);
+    setIsMobile(window.innerWidth <= initialWidth);
+  }, [initialWidth]);
 
   useEffect(() => {
     window.addEventListener('resize', handleResize);
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, []);
+  }, [handleResize]);
 
   return isMobile;
 };

@@ -2,8 +2,9 @@
 
 .wrapper {
   display: flex;
+  flex-direction: column;
   padding: 15px 32px;
-  margin-top: 15px;
+  margin-top: 10px;
   background-color: $pageBackground;
 }
 
@@ -13,9 +14,14 @@
   width: 100%;
 }
 
+.accordionWrapper {
+  margin-bottom: 25px;
+}
+
 .link,
 .clothing,
-.promotion {
+.promotion,
+.linkSeeAll {
   font-size: 24px;
   font-weight: 400;
   letter-spacing: 0.01rem;
@@ -25,7 +31,12 @@
 .link:not(:last-child),
 .clothing,
 .promotion {
-  margin-bottom: 32px;
+  margin-bottom: 25px;
+}
+
+.linkSeeAll {
+  font-weight: 600;
+  margin-bottom: 25px;
 }
 
 .promotion {
@@ -49,10 +60,9 @@
 }
 
 .listStyle {
-  padding-left: 15px;
   overflow: hidden;
   padding-bottom: 0;
-  max-height: 220px;
+  max-height: max-content;
   transition: all 200ms ease;
 }
 

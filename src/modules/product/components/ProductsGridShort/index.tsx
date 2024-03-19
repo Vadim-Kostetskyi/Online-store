@@ -4,6 +4,7 @@ import { GetProductsWithImagesProps } from 'redux/types';
 import ProductCard from 'modules/product/components/ProductCard';
 import ProductsGridShortMobile from '../ProductsGridShortMobile';
 import { useGetViewportWidth } from 'hooks';
+import { ViewportWidth } from 'utils/constants';
 import styles from './index.module.scss';
 
 interface ProductsGridShortProps {
@@ -40,7 +41,7 @@ const ProductsGridShort: FC<ProductsGridShortProps> = ({
   searchProducts = {} as GetProductsWithImagesProps,
   title,
 }) => {
-  const isMobile = useGetViewportWidth();
+  const isMobile = useGetViewportWidth(ViewportWidth.TABLET);
 
   return searchProducts?.products?.length > 0 ? (
     <div className={styles.wrapper}>
