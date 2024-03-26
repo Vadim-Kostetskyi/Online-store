@@ -1,6 +1,7 @@
 @import 'styles/constants';
 
-.header {
+.header,
+.checkoutHeader {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,7 +15,16 @@
   }
 }
 
-.headerContainer {
+.logoContainer {
+  padding: 60px 0;
+}
+
+.logoBox {
+  padding: 45px 0;
+}
+
+.headerContainer,
+.checkoutHeader {
   width: calc(100% - 160px);
   @include media(laptop) {
     width: calc(100% - 120px);

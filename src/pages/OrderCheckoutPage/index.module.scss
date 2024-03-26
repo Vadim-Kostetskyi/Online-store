@@ -1,0 +1,10 @@
+@import 'styles/constants';
+
+.wrapper {
+  display: flex;
+}
+
+.contentWrapper {
+  display: flex;
+  flex-direction: column;
+}

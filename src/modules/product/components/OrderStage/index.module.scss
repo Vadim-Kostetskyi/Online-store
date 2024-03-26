@@ -1,0 +1,50 @@
+@import 'styles/constants';
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  padding: 65px 0 70px;
+}
+
+.number,
+.numberActive {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  padding-top: 3px;
+  margin-right: 15px;
+  font-size: 14px;
+  color: $paleGray;
+  border: 1px solid $paleGray;
+  border-radius: 4px;
+}
+
+.numberActive {
+  color: $brilliance;
+  border-color: $blackColor;
+  background-color: $blackColor;
+}
+
+.stage,
+.stageActive {
+  font-weight: 600;
+  margin-right: 15px;
+}
+
+.stage {
+  color: $paleGray;
+}
+
+.line,
+.lineActive {
+  width: 194px;
+  height: 1px;
+  margin-right: 15px;
+  background-color: $paleGray;
+}
+
+.lineActive {
+  background-color: $grayLight;
+}

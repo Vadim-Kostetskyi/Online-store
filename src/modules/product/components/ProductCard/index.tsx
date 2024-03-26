@@ -2,9 +2,9 @@ import React, { FC } from 'react';
 import ProductImageSwiper from 'modules/product/components/ProductImageSwiper';
 import ProductInfo from 'modules/product/components/ProductInfo';
 import { Size } from 'types/types';
-import styles from './index.module.scss';
 import { ImageItemProps } from 'redux/types';
 import { Link } from 'react-router-dom';
+import styles from './index.module.scss';
 
 export interface ProductCardProps {
   productId: string;

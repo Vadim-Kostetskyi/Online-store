@@ -9,21 +9,30 @@ import ShoppingCart from 'modules/checkout/components/ShoppingCart';
 import OrderSummary from 'modules/checkout/components/OrderSummary';
 
 type Properties = {
-  onClose: () => void;
+  onClose?: () => void;
+  isOrder?: boolean;
 };
 
-const ShoppingCartModal: FC<Properties> = ({ onClose }): JSX.Element => {
+const ShoppingCartModal: FC<Properties> = ({
+  onClose = () => {},
+  isOrder,
+}): JSX.Element => {
   const { t } = useTranslation();
   const products = useAppSelector(memoizedSelectUniqueItems);
   const totalPrice = useAppSelector(selectOrderTotalPrice);
 
   return (
     <ShoppingCart
-      title={t('shoppingCart.title')}
+      title={isOrder ? t('order.summaryTitle') : t('shoppingCart.title')}
       onClose={onClose}
       products={products}
+      isOrder={isOrder}
     >
-      <OrderSummary totalPrice={totalPrice} />
+      <OrderSummary
+        totalPrice={totalPrice}
+        isOrder={isOrder}
+        amountProducts={products.length}
+      />
     </ShoppingCart>
   );
 };

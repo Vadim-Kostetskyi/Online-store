@@ -1,0 +1,25 @@
+@import 'styles/constants';
+
+.button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 16px 0;
+  font-family: $font-family-main;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 4px;
+  background-color: $fadedGray;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 24px;
+    bottom: 13px;
+    width: 24px;
+    height: 24px;
+    background-image: url('../../../../assets/svgs/Facebook.svg');
+  }
+}

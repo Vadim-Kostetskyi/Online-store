@@ -6,17 +6,21 @@ import styles from './index.module.scss';
 type ShoppingCartHeaderProps = {
   title: string;
   onClose: () => void;
+  isOrder?: boolean;
 };
 
 const ShoppingCartHeader: FC<ShoppingCartHeaderProps> = ({
   onClose,
   title,
+  isOrder,
 }): JSX.Element => (
   <div className={styles.header}>
     <h2 className={styles.title}>{title}</h2>
-    <IconButton className={styles.closeButton} onClick={onClose}>
-      <Cross />
-    </IconButton>
+    {isOrder ? null : (
+      <IconButton className={styles.closeButton} onClick={onClose}>
+        <Cross />
+      </IconButton>
+    )}
   </div>
 );
 

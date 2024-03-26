@@ -10,6 +10,7 @@ type ShoppingCartProps = {
   products: AddItemPayload[];
   children: React.ReactNode;
   onClose: () => void;
+  isOrder?: boolean;
 };
 
 const ShoppingCart: FC<ShoppingCartProps> = ({
@@ -17,12 +18,13 @@ const ShoppingCart: FC<ShoppingCartProps> = ({
   products,
   title,
   children,
+  isOrder,
 }): JSX.Element => {
   const { t } = useTranslation();
 
   return (
-    <div className={styles.container}>
-      <ShoppingCartHeader title={title} onClose={onClose} />
+    <div className={isOrder ? styles.orderContainer : styles.container}>
+      <ShoppingCartHeader title={title} onClose={onClose} isOrder={isOrder} />
       <ShoppingCartList className={styles.content} products={products} />
       <div className={styles.promotionalCode}>
         <div>{t('shoppingCart.promotionalCode')}</div>

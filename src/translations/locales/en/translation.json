@@ -10,6 +10,9 @@
   "call": "Call {{phone}}",
   "workDays": "From Mondays to Fridays from 09:00 to 19:00",
   "online": "Online",
+  "telephone": "Telephone",
+  "email": "Email",
+  "password": "Password",
   "copyright": "© {{year}} by NOVA. All Rights Reserved.",
   "subscriptionForm": {
     "placeholder": "Enter your email address",
@@ -53,5 +56,20 @@
     "deliveryInfo": "Free delivery for orders over 100 €",
     "total": "Total",
     "processOrderButton": "Process order"
+  },
+  "order": {
+    "summaryTitle": "Purchase summary",
+    "details": "DETAILS",
+    "delivery": "DELIVERY",
+    "payment": "PAYMENT",
+    "detailsTitle": "ENTER YOUR PHONE NUMBER OR EMAIL",
+    "signIn": "Sign in",
+    "orIfYouPrefer": "Or, if you prefer",
+    "withoutRegistration": "Without registration",
+    "continueWithApple": "Continue with Apple",
+    "continueWithGoogle": "Continue with Google",
+    "continueWithFacebook": "Continue with Facebook",
+    "forgotPassword": "I forgot my password",
+    "stayLoggedIn": "Stay logged in"
   }
 }
