@@ -1,13 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import styles from './index.module.scss';
 import useExtractFromPath from 'hooks/use-extract-from-path';
 
 const OrderStage = () => {
+  const [stage, setStage] = useState('');
+
   const { t } = useTranslation();
 
   const path = useExtractFromPath('checkout');
-  const stage = path.toUpperCase();
+
+  useEffect(() => {
+    setStage(path.toUpperCase());
+  }, [path]);
 
   const stages = [t('order.details'), t('order.delivery'), t('order.payment')];
 

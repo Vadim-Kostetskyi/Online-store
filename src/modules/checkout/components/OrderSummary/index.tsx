@@ -25,7 +25,7 @@ const OrderSummary: FC<OrderSummaryProps> = ({
           {t('shoppingCart.deliveryInfo')}
         </p>
       </div>
-      <div className={isOrder ? '' : styles.orderSummaryContainer}>
+      <div className={isOrder ? styles.orderSummaryContainer : ''}>
         {isOrder ? (
           <div className={styles.itemsBox}>
             <p>

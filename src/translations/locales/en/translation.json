@@ -10,12 +10,20 @@
   "call": "Call {{phone}}",
   "workDays": "From Mondays to Fridays from 09:00 to 19:00",
   "online": "Online",
+  "return": "RETURN",
+  "continue": "CONTINUE",
   "telephone": "Telephone",
   "email": "Email",
   "password": "Password",
   "item": "item",
   "items": "items",
+  "free": "Free",
+  "box": "box",
+  "truck": "truck",
+  "gift": "gift",
+  "privacyPolicy": "The terms and conditions. Privacy policy.",
   "copyright": "© {{year}} by NOVA. All Rights Reserved.",
+  "consent": "By continuing, I confirm that I was able to read and understand the information on the use of my personal data, as explained in the Privacy Policy.",
   "subscriptionForm": {
     "placeholder": "Enter your email address",
     "policy": "I accept the privacy policy",
@@ -72,6 +80,11 @@
     "continueWithGoogle": "Continue with Google",
     "continueWithFacebook": "Continue with Facebook",
     "forgotPassword": "I forgot my password",
-    "stayLoggedIn": "Stay logged in"
+    "stayLoggedIn": "Stay logged in",
+    "warning": "Sorry! We need these details.",
+    "homeDelivery": "HOME DELIVERY",
+    "postServices": "POST SERVICES",
+    "sendOrderAsGift": "SEND AN ORDER AS A GIFT",
+    "workDays": "Monday 30 October - Friday 3 November"
   }
 }

@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const useExtractFromPath = (delimiter: string) => {
   const [extractedValue, setExtractedValue] = useState('');
+  const navigate = useNavigate();
 
+  const path = window.location.pathname.split(delimiter + '/');
   useEffect(() => {
-    const path = window.location.pathname.split(delimiter + '/');
     setExtractedValue(path[1]);
-  }, [delimiter]);
+  }, [navigate]);
 
   return extractedValue;
 };

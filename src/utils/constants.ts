@@ -30,3 +30,7 @@ export enum ViewportWidth {
   MOBILE = 480,
   TABLET = 960,
 }
+
+export enum CountyPhoneCode {
+  UKRAINE = 'Prefix *\n+380',
+}

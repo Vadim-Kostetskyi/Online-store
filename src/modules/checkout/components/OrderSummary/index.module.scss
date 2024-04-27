@@ -26,8 +26,11 @@ $containerHeight: 143px;
 .orderSummaryContainer {
   display: flex;
   flex-direction: column;
+  justify-content: end;
+  width: 397px;
   min-height: 111px;
   bottom: 0;
+  padding-bottom: 16px;
   border-radius: 8px 8px 0 0;
   background-color: $pageBackground;
 }
