@@ -1,0 +1,106 @@
+@import 'styles/constants';
+
+.paymentWrapper {
+  width: auto;
+}
+
+.paymentButtons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.paymentMethod {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 375px;
+  height: 130px;
+  padding: 0 15px 0 55px;
+  font-size: 20px;
+  font-weight: 600;
+  border: 1px solid $grayLight;
+
+  &:nth-child(even) {
+    border-left: none;
+  }
+
+  & input {
+    visibility: hidden;
+    margin-right: 15px;
+  }
+
+  &:nth-child(1) {
+    border-top-left-radius: 4px;
+
+    &:hover,
+    &:focus {
+      border: 1px solid $blackColor;
+    }
+  }
+
+  &:nth-child(2) {
+    border-top-right-radius: 4px;
+
+    &:hover,
+    &:focus {
+      border: 1px solid $blackColor;
+      border-left: none;
+      box-shadow: -1px 0 0 0 $blackColor;
+    }
+  }
+
+  &:nth-child(3):hover,
+  &:nth-child(3):focus {
+    border: 1px solid $blackColor;
+    border-top: none;
+    box-shadow: 0 -1px 0 0 $blackColor;
+  }
+
+  &:nth-child(4) {
+    border-bottom-right-radius: 4px;
+
+    &:hover,
+    &:focus {
+      border: 1px solid $blackColor;
+      border-top: none;
+      border-left: none;
+      box-shadow: -1px -1px 0 0 $blackColor;
+    }
+  }
+
+  &:nth-child(n + 3) {
+    border-top: none;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 15px;
+    width: 24px;
+    height: 24px;
+    background-color: $paleGray;
+    border-radius: 50%;
+  }
+
+  & img {
+    width: 40px;
+  }
+}
+
+.cardImageWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: end;
+  width: 136px;
+  gap: 8px;
+}
+
+.policy {
+  display: block;
+  font-size: 14px;
+  text-align: right;
+  margin-top: 40px;
+  text-decoration: underline;
+  color: $grayDark;
+}

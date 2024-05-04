@@ -6,6 +6,7 @@ import ProductsGridPage from 'pages/ProductsGridPage';
 import ProductDetailsPage from 'pages/ProductDetailsPage';
 import OrderCheckoutPage from './OrderCheckoutPage';
 import OrderCheckoutAuthorization from 'modules/checkout/components/OrderCheckoutAuthorization';
+import Payment from 'modules/checkout/components/Payment';
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
       <Route path="/checkout" element={<OrderCheckoutPage />}>
         <Route path="details" element={<OrderCheckoutAuthorization />} />
         <Route path="delivery" />
-        <Route path="payment" />
+        <Route path="payment" element={<Payment />} />
       </Route>
     </Routes>
   );

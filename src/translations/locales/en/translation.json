@@ -73,6 +73,10 @@
     "continueWithFacebook": "Continue with Facebook",
     "forgotPassword": "I forgot my password",
     "stayLoggedIn": "Stay logged in",
-    "policy": "The terms and conditions. Privacy policy."
+    "policy": "The terms and conditions. Privacy policy.",
+    "creditCard": "CREDIT CARD",
+    "googlePay": "GOOGLE PAY",
+    "applePay": "APPLE PAY",
+    "paypal": "PAYPAL"
   }
 }
