@@ -1,12 +1,20 @@
 @import 'styles/constants';
 
+.buttonBox {
+  display: flex;
+  flex-direction: column;
+  width: max-content;
+}
+
 .image {
   height: 100%;
 }
 
 .color,
 .chosenColor {
+  position: relative;
   height: 121px;
+  width: max-content;
 
   &:not(:last-child) {
     margin-right: 15px;
@@ -62,4 +70,12 @@
 .color,
 .chosenColor {
   cursor: pointer;
+}
+
+.colorName {
+  font-family: $font-family-main;
+  position: absolute;
+  bottom: -25px;
+  left: 20px;
+  font-size: 20px;
 }

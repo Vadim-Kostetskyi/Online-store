@@ -1,7 +1,14 @@
+@import 'styles/constants';
+
 .contentWrapper {
   display: flex;
   flex-direction: column;
   gap: 80px;
   margin-bottom: 80px;
   width: 100%;
+
+  @include media(laptop) {
+    gap: 50px;
+    margin-bottom: 30px;
+  }
 }

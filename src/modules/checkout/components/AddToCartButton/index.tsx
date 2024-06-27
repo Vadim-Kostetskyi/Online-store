@@ -2,6 +2,8 @@ import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import ShoppingBag from 'assets/svgs/ShoppingBag';
 import Heart from 'assets/svgs/Heart';
+import { useGetViewportWidth } from 'hooks';
+import { ViewportWidth } from 'utils/constants';
 import styles from './index.module.scss';
 
 interface AddToCartButtonProps {
@@ -16,8 +18,19 @@ const AddToCartButton: FC<AddToCartButtonProps> = ({
   isError,
 }) => {
   const { t } = useTranslation();
+  const isMobile = useGetViewportWidth(ViewportWidth.TABLET);
 
-  return (
+  return isMobile ? (
+    <div className={styles.wrapperMobile}>
+      <button
+        className={styles.addButton}
+        onClick={addToBag}
+        disabled={isError}
+      >
+        <span className={styles.text}>{t('productDetails.add')}</span>
+      </button>
+    </div>
+  ) : (
     <div className={styles.wrapper}>
       <button
         className={styles.addButton}

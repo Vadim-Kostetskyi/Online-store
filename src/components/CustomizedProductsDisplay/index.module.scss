@@ -6,6 +6,10 @@
   gap: 80px;
   max-width: $laptop;
   min-height: 300px;
+
+  @include media(laptop) {
+    gap: 50px;
+  }
 }
 
 .title {

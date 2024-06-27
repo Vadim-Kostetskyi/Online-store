@@ -2,10 +2,10 @@ import React, { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useAppSelector, useClearCartEffect } from 'hooks';
 import { selectTotalQuantity } from 'redux/slices/shopping-cart';
-import ShoppingBag from 'assets/svgs/ShoppingBag';
 import User from 'assets/svgs/User';
 import Search from 'assets/svgs/Search';
 import ShoppingCartModal from 'modules/checkout/containers/ShoppingCartModal';
+import AddToShoppingCartButton from 'modules/core/components/AddToShoppingCartButton';
 import styles from './index.module.scss';
 
 const TopBar = (): JSX.Element => {
@@ -39,12 +39,7 @@ const TopBar = (): JSX.Element => {
         <button className={styles.userButton}>
           <User className={styles.userIcon} />
         </button>
-        <button className={styles.shoppingCartButton} onClick={openModal}>
-          <ShoppingBag className={styles.shoppingBagIcon} />
-          {quantity > 0 ? (
-            <div className={styles.quantity}>{quantity}</div>
-          ) : null}
-        </button>
+        <AddToShoppingCartButton onClick={openModal} quantity={quantity} />
         {isModalOpen && <ShoppingCartModal onClose={closeModal} />}
       </div>
     </>

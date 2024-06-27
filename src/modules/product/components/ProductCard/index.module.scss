@@ -1,9 +1,12 @@
 @import 'styles/constants';
 
 .productCard {
-  width: calc((100% - 16px) / 3);
-  @include media(mobile) {
-    width: calc((100% - 8px) / 2);
-    margin-bottom: 8px;
+  @include media(laptopUp) {
+    width: calc((100% - 16px) / 3);
   }
+}
+
+.image {
+  width: 100%;
+  margin-bottom: 10px;
 }

@@ -6,7 +6,7 @@ import styles from './index.module.scss';
 
 interface ProductInfoParameters {
   changeParameters: (parameter: string, value: string) => void;
-  sizes: Size[];
+  sizes?: Size[];
   error?: string;
 }
 
@@ -54,8 +54,7 @@ const ProductInfoParameters: FC<ProductInfoParameters> = ({
       <ToggleProductInfoParameters
         parameters={colors}
         productInfo="color"
-        // TODO: instead of +2 make it dynamic
-        text={`+2 ${t('colors')}`}
+        text={`+${colors.length} ${t('colors')}`}
         index={0}
         active={activeColor}
         {...props}
@@ -63,8 +62,7 @@ const ProductInfoParameters: FC<ProductInfoParameters> = ({
       <ToggleProductInfoParameters
         parameters={defaultSizes}
         productInfo="size"
-        // TODO: instead of +5 make it dynamic
-        text={`+5 ${t('sizes')}`}
+        text={`+${sizes && sizes.length} ${t('sizes')}`}
         index={1}
         active={activeSize}
         sizes={sizes}

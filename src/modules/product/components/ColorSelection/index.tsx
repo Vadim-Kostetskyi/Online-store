@@ -1,7 +1,9 @@
 import React, { FC, useCallback } from 'react';
 import { Color } from 'types/types';
-import styles from './index.module.scss';
+import { useGetViewportWidth } from 'hooks';
+import { ViewportWidth } from 'utils/constants';
 import Check from 'assets/svgs/Check';
+import styles from './index.module.scss';
 
 interface ColorSelectionProps {
   colors: Record<Color, string>;
@@ -16,6 +18,8 @@ const ColorSelection: FC<ColorSelectionProps> = ({
   changeColor,
   multiChoice,
 }): JSX.Element => {
+  const isMobile = useGetViewportWidth(ViewportWidth.TABLET);
+
   const setButtonClassName = useCallback(
     (label: Color | string) => {
       if (multiChoice) {
@@ -45,7 +49,12 @@ const ColorSelection: FC<ColorSelectionProps> = ({
               />
             </div>
           ) : (
-            <img className={styles.image} src={content} alt={label} />
+            <>
+              <img className={styles.image} src={content} alt={label} />
+              {isMobile ? (
+                <span className={styles.colorName}>{label}</span>
+              ) : null}
+            </>
           )}
         </button>
       ))}

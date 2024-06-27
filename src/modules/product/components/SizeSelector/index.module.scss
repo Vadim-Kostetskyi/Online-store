@@ -1,5 +1,19 @@
 @import 'styles/constants';
 
+.btnBlock,
+.btnBlockProductDetails {
+  display: flex;
+  width: auto;
+}
+
+.btnBlockProductDetails {
+  @include media(tablet) {
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
+  }
+}
+
 .parameterBtn,
 .parameterBtnFilter {
   display: flex;
@@ -34,7 +48,18 @@
   cursor: pointer;
 
   &:not(:last-child) {
-    margin-right: 15px;
+    @include media(laptopUp) {
+      margin-right: 15px;
+    }
+  }
+
+  @include media(tablet) {
+    width: 100%;
+    border: none;
+    text-align: left;
+    padding-left: 15px;
+    border-top: 1px solid $grayLight;
+    border-radius: 0;
   }
 }
 
@@ -50,9 +75,4 @@
 
 .text {
   padding: 17px 0 13px;
-}
-
-.btnBlock {
-  display: flex;
-  width: auto;
 }

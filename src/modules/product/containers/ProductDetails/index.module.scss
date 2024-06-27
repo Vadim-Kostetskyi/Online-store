@@ -1,6 +1,14 @@
+@import 'styles/constants';
+
 .wrapper {
   display: flex;
   justify-content: space-between;
   gap: 52px;
   margin-top: 32px;
+
+  @include media(tablet) {
+    flex-direction: column;
+    justify-content: center;
+    gap: 25px;
+  }
 }

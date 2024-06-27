@@ -1,11 +1,16 @@
 import React, { useCallback, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import PhotoSwitcher from 'modules/product/containers/ProductDetailsGallery';
+import ProductDetailsGallery from 'modules/product/containers/ProductDetailsGallery';
 import ProductDetailsInfo from 'modules/product/components/ProductDetailsInfo';
-import { useGetProductByIdQuery } from 'redux/productsApi';
-import CustomizedProductsDisplay from 'components/SameStyleAndVisitedProducts';
-import { useAppDispatch, useLocalStorage } from 'hooks';
+import {
+  useGetProductByIdQuery,
+  useGetProductImagesQuery,
+} from 'redux/productsApi';
+import CustomizedProductsDisplay from 'components/CustomizedProductsDisplay';
+import ProductImageSwiper from 'modules/product/components/ProductImageSwiper';
 import { actions as shoppingCartActions } from 'redux/slices/shopping-cart';
+import { useAppDispatch, useLocalStorage, useGetViewportWidth } from 'hooks';
+import { ViewportWidth } from 'utils/constants';
 import { Color, Size } from 'types/types';
 import styles from './index.module.scss';
 
@@ -14,6 +19,11 @@ const ProductDetails = () => {
   const { data } = useGetProductByIdQuery({ id: productId || '' });
   const { getItem, setItem } = useLocalStorage<string[]>('visited', []);
   const dispatch = useAppDispatch();
+  const isMobile = useGetViewportWidth(ViewportWidth.TABLET);
+
+  const images = productId
+    ? useGetProductImagesQuery({ id: productId })
+    : undefined;
 
   useEffect(() => {
     const visitedProduct = getItem();
@@ -50,7 +60,11 @@ const ProductDetails = () => {
   return (
     <>
       <div className={styles.wrapper}>
-        <PhotoSwitcher {...data} />
+        {isMobile ? (
+          <ProductImageSwiper images={images?.data || []} />
+        ) : (
+          <ProductDetailsGallery {...data} />
+        )}
         <ProductDetailsInfo
           addToShoppingCart={addToShoppingCart}
           addToFavorite={addToFavorite}

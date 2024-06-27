@@ -47,8 +47,7 @@
   gap: 16px;
 }
 
-.userButton,
-.shoppingCartButton {
+.userButton {
   position: relative;
   width: 40px;
   height: 40px;
@@ -58,8 +57,7 @@
   }
 }
 
-.userIcon,
-.shoppingBagIcon {
+.userIcon {
   width: 24px;
   stroke: $blackColor;
   @include media(mobile) {
@@ -67,22 +65,4 @@
     height: 32px;
   }
   cursor: pointer;
-}
-
-.quantity {
-  position: absolute;
-  top: 0;
-  right: -1px;
-  width: 16px;
-  height: 16px;
-  background: $greenMint;
-  color: $brilliance;
-  border-radius: 2px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: $font-family-main;
-  font-size: 12px;
-  font-weight: 500;
-  z-index: 1;
 }

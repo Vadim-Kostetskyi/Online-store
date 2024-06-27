@@ -1,14 +1,9 @@
 @import 'styles/constants';
 
-.info {
-  padding-right: 5px;
-}
-
 .nameBox {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 10px;
 }
 
 .productName {
@@ -20,30 +15,17 @@
   text-overflow: ellipsis;
 }
 
-.shoppingCart {
-  width: 24px;
-  height: 24px;
-  cursor: pointer;
-}
-
-.shoppingCartImg {
-  width: 20px;
-  stroke: $blackColor;
-}
-
 .price {
-  font-size: 16px;
-  font-weight: 600;
-  letter-spacing: 0rem;
+  text-align: left;
   margin-bottom: 10px;
-  @include media(mobile) {
-    margin-bottom: 4px;
+  @include media(tablet) {
+    margin-bottom: 0;
   }
 }
 
 .shoppingCartWrapper,
 .productInfoParametersWrapper {
-  @include media(mobile) {
+  @include media(tablet) {
     display: none;
   }
 }

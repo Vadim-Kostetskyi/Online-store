@@ -10,10 +10,11 @@ import styles from './index.module.scss';
 interface ProductsGridShortProps {
   searchProducts?: GetProductsWithImagesProps;
   title: string;
+  isSizeColorShown?: boolean;
 }
 
-const mobileProducts = (searchProducts: GetProductsWithImagesProps) => {
-  return searchProducts?.products?.map(
+const mobileProducts = (searchProducts: GetProductsWithImagesProps) =>
+  searchProducts?.products?.map(
     ({ id, title, price, size, quantity, vendorCode }) => {
       const images =
         searchProducts?.images?.find(item => item.id === id)?.images ?? [];
@@ -26,7 +27,7 @@ const mobileProducts = (searchProducts: GetProductsWithImagesProps) => {
             productName={title}
             price={price}
             sizes={size}
-            image={images[0]?.url} // Added optional chaining here
+            image={images[0]?.url}
             quantity={quantity}
             isMobile={true}
             vendorCode={vendorCode}
@@ -35,7 +36,6 @@ const mobileProducts = (searchProducts: GetProductsWithImagesProps) => {
       );
     },
   );
-};
 
 const ProductsGridShort: FC<ProductsGridShortProps> = ({
   searchProducts = {} as GetProductsWithImagesProps,

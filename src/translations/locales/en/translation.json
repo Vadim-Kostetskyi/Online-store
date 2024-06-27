@@ -29,7 +29,10 @@
     "addToMyShoppingBag": "ADD TO MY SHOPPING BAG",
     "ref": "Ref",
     "description": "Description",
-    "composition": "Composition"
+    "composition": "Composition",
+    "add": "ADD",
+    "color": "COLOR",
+    "size": "SIZE"
   },
   "viewCollection": "View Collection",
   "collections": "Collections",

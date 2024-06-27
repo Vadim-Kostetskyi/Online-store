@@ -1,7 +1,7 @@
 import React from 'react';
 
 export interface ArrowProps {
-  isGrey: boolean;
+  isGrey?: boolean;
 }
 
 const ArrowLeft = ({ isGrey }: ArrowProps): JSX.Element => (

@@ -43,7 +43,11 @@ const SizeSelector: FC<SizeSelectorProps> = ({
   );
 
   return (
-    <div className={styles.btnBlock}>
+    <div
+      className={
+        isProductDetails ? styles.btnBlockProductDetails : styles.btnBlock
+      }
+    >
       {displaySizes &&
         displaySizes.map((size, index) => (
           <button

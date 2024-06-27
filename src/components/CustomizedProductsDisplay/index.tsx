@@ -1,5 +1,6 @@
 import React, { FC, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useParams } from 'react-router-dom';
 import {
   useFetchProductsWithImagesMutation,
   useGetProductsByIdWithImagesQuery,
@@ -7,9 +8,8 @@ import {
 import { BodySearchProducts } from 'redux/types';
 import { FIRST_PAGE, SIMILAR_PRODUCTS_SIZE } from 'utils/constants';
 import ProductsGridShort from 'modules/product/components/ProductsGridShort';
-import styles from './index.module.scss';
-import { useParams } from 'react-router-dom';
 import { useLocalStorage } from 'hooks';
+import styles from './index.module.scss';
 
 const CustomizedProductsDisplay: FC<BodySearchProducts> = ({ subcategory }) => {
   const [visitedProducts, setVisitedProducts] = useState<string[]>([]);
