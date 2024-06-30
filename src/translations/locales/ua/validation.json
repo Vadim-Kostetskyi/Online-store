@@ -1,0 +1,5 @@
+{
+  "required": "Це поле обов'язкове!",
+  "invalidCardNumber": "Невірний номер картки!",
+  "invalidCVV": "Невірний CVV!"
+}

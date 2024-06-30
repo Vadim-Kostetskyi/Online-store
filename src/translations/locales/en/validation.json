@@ -1,0 +1,5 @@
+{
+  "required": "This field is required!",
+  "invalidCardNumber": "Invalid card number!",
+  "invalidCVV": "Invalid CVV!"
+}

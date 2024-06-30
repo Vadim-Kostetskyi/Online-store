@@ -1,0 +1,74 @@
+@import '../../../../styles/constants.scss';
+
+.wrapper {
+  width: 750px;
+}
+
+.wrapperData {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+
+  div:nth-of-type(-n + 2) {
+    flex-basis: calc(50% - 8px);
+  }
+
+  div:nth-of-type(n + 3) {
+    flex-basis: calc(25% - 11px);
+  }
+
+  input {
+    width: calc(100% - 20px);
+    width: 100%;
+    padding: 16px 0 16px 12px;
+    border: 1px solid $grayLight;
+    border-radius: 4px;
+  }
+}
+
+.inputError {
+  border: 1px solid red;
+  outline-color: red;
+}
+
+.textError {
+  display: block;
+  color: red;
+  text-align: right;
+  padding-top: 4px;
+}
+
+.wrapperButton {
+  display: flex;
+  align-items: center;
+  margin-top: 40px;
+
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(50% - 7px);
+    padding: 17px 0 13px;
+    border: 1px solid $blackColor;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &:not(:last-child) {
+      margin-right: 40px;
+    }
+
+    &:last-child {
+      color: $brilliance;
+      background-color: $blackColor;
+    }
+
+    p {
+      display: block;
+      font-family: $font-family-main, sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 18px;
+      letter-spacing: 0.01em;
+    }
+  }
+}

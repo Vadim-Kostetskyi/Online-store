@@ -7,6 +7,9 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   text?: string;
   wrapperClass?: string;
   labelCheckbox?: string;
+  name?: string;
+  id?: string;
+  type?: string;
 }
 
 const Input: FC<InputProps> = ({
@@ -16,10 +19,18 @@ const Input: FC<InputProps> = ({
   Icon,
   text,
   wrapperClass,
+  name,
+  id,
 }) => (
   <div className={`${styles.inputWrapper} ${wrapperClass}`}>
     {Icon ? <span className={styles.icon}>{Icon}</span> : null}
-    <input type={type} placeholder={placeholder} className={className} />
+    <input
+      type={type}
+      placeholder={placeholder}
+      className={className}
+      name={name}
+      id={id}
+    />
     {text ? <label className={styles.text}>{text}</label> : null}
   </div>
 );

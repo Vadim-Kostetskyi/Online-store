@@ -16,6 +16,8 @@
   "item": "item",
   "items": "items",
   "copyright": "© {{year}} by NOVA. All Rights Reserved.",
+  "month": "Month",
+  "year": "Year",
   "subscriptionForm": {
     "placeholder": "Enter your email address",
     "policy": "I accept the privacy policy",
@@ -82,5 +84,9 @@
     "all": "All",
     "priceHighToLow": "Price high to low",
     "priceLowToHigh": "Price low to high"
+  },
+  "payment": {
+    "cardNumber": "Card Number",
+    "cardHolder": "Card Holder"
   }
 }

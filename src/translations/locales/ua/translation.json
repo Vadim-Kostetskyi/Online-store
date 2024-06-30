@@ -1,3 +1,9 @@
 {
-  "welcome": "Ласкаво просимо до React and react-i18next"
+  "welcome": "Ласкаво просимо до React and react-i18next",
+  "month": "Місяць",
+  "year": "Рік",
+  "payment": {
+    "cardNumber": "Номер Карти",
+    "cardHolder": "Власник Карти"
+  }
 }
